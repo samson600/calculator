@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.clock {
+     border-style: double;
+     padding: 2px;
+     margin-top:2%;
+     float:right; 
+     background-color:#75a3a3;
+     box-sizing: border-box;
+     width: 90px;
+}
+textarea{
+    text-align:left;
+    font-size:25px;
+    border:3px solid #262626;
+    width:98%;
+    height:65px;
+    color: black;
+    margin: auto;
+    background-color:#75a3a3;
+    border-radius:6px;
+    box-sizing: border-box;
+}
+form{
+    border:1px solid black;
+    background-color:#000;
+    padding:10px;
+    border-radius:6px;
+    box-shadow: 0 3px #999;
+    width:285px;
+    height:430px;
+    box-sizing: border-box;
+    margin: auto;
+    margin-top:70px;
+}
+
+.btn, .btn-a{
+    padding:2px;
+    margin:3px;
+    width:41px;
+    height: 45px;
+    border-radius:10px;
+    font-size:20px;
+    font-weight: 400;
+    background-color:#202629;
+    color: #fff; 
+}
+.btn{
+    border:1px solid green;
+}
+.btn-a{
+     border:1px solid #cccc00;
+}
+
+
+.btn-a:active,
+.btn:active {
+      box-shadow: 0 2px black;
+      transform: translateY(2px);
+      background-color: white;
+      color:black;
+}
+.ex{
+    border-color:#0059b3;
+
+}
+.button{
+    width: 98%;
+    margin: auto;
+}
+</style>
+</heead>
+<body>
+<form name="calculator">
+<div class="clock">
+<span id="hour"></span>:
+<span id="min"></span>
+<span id="ap"></span>
+</div>
+<h3 style="color:white">SAMN<span style="font-size:9px">calculator</span></h3>
+
+<textarea name="screen" disabled></textarea>
+<br><hr>
+<div class="button">
+    
+<span style="background-color:#000; color:snow; border-color:#000;font-size:13px;">Sam<sub style="color:gray; font-size:10px;">Aun</sub></span>
+<input class="btn ex" style="color:#cccc00; border-color:#8B3455;" type="button" value="&larr;" onclick="calculator.screen.value=calculator.screen.value.slice(0,-1)">
+<input class="btn ex" style="color:red; border-color:#8B3455;" type="button" value="AC" onclick="calculator.screen.value=''">
+<input class="btn" type="button" value="&radic;"onclick="calculator.screen.value=Math.sqrt(calculator.screen.value)">
+<input class="btn-a" type="button" value="/"onclick="calculator.screen.value+='/'">
+<br>
+<input class="btn ex" type="button" value="M+">
+<input class="btn" type="button" value="7" ontouchstart="calculator.screen.value+='7'">
+<input class="btn" type="button" value="8" onclick="calculator.screen.value+='8'">
+<input class="btn" type="button" value="9"onclick="calculator.screen.value+='9'">
+<input class="btn-a" type="button" value="*"onclick="calculator.screen.value+='*'">
+<br>
+<input class="btn ex" type="button" value="M-">
+<input class="btn" type="button" value="4"onclick="calculator.screen.value+='4'">
+<input class="btn" type="button" value="5"onclick="calculator.screen.value+='5'">
+<input class="btn" type="button" value="6"onclick="calculator.screen.value+='6'">
+<input class="btn-a" type="button" value="-"onclick="calculator.screen.value+='-'">
+<br>
+<input class="btn ex" type="button" value="MC" >
+<input class="btn" type="button" value="1"onclick="calculator.screen.value+='1'">
+<input class="btn" type="button" value="2"onclick="calculator.screen.value+='2'">
+<input class="btn" type="button" value="3"onclick="calculator.screen.value+='3'">
+<input class="btn-a" type="button" style="height:97px; position: absolute; margin-left: 8px;" value="+"onclick="calculator.screen.value+='+'">
+<br>
+<input class="btn ex" type="button" value="MR">
+<input class="btn" type="button" value="0" onclick="calculator.screen.value+='0'">
+<input class="btn" type="button" value="."onclick="calculator.screen.value+='.'">
+<input class="btn-a" type="button" value="=" onclick="calculator.screen.value=eval(calculator.screen.value)">
+<br>
+</div>
+</form>
+<script>
+function clock() {
+
+var t = new Date();
+
+var H = t.getHours(H);
+var m = t.getMinutes(m);
+if(H >= 13){
+      document.getElementById('hour').innerHTML =H-12;
+      document.getElementById('ap').innerHTML ="pm";
+    }else{
+    if(H<=0){
+       document.getElementById('hour').innerHTML =H+12;
+      document.getElementById('ap').innerHTML ="am";
+    }else{
+  document.getElementById('hour').innerHTML =H;
+  document.getElementById('ap').innerHTML ="am";
+  }
+}
+document.getElementById('min').innerHTML =m;
+} 
+setInterval(clock,1000);
+
+
+</script>
+</body>
+</html>
